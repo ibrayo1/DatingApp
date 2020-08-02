@@ -10,16 +10,16 @@ import { Router } from '@angular/router';
 })
 export class NavComponent implements OnInit {
   model: any = {};
+  isCollapsed = true;
 
   constructor(public authService: AuthService, private alertify: AlertifyService, private router: Router) { }
 
-  // tslint:disable-next-line: typedef
   ngOnInit() {
   }
 
-  // tslint:disable-next-line: typedef
   login() {
     this.authService.login(this.model).subscribe(next => {
+      this.isCollapsed = true;
       this.alertify.success('Logged in successfully');
     }, error => {
       this.alertify.error(error);
@@ -28,16 +28,21 @@ export class NavComponent implements OnInit {
     });
   }
 
-  // tslint:disable-next-line: typedef
   loggedIn(){
     return this.authService.loggedIn();
   }
 
-  // tslint:disable-next-line: typedef
   logout() {
     localStorage.removeItem('token');
     this.alertify.message('logged out');
     this.router.navigate(['/home']);
+    this.isCollapsed = true;
+  }
+
+  toggleNav() {
+    if ( !this.isCollapsed ) {
+      this.isCollapsed = !this.isCollapsed;
+    }
   }
 
 }

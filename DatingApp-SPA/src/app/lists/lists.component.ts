@@ -9,7 +9,6 @@ export class ListsComponent implements OnInit {
 
   constructor() { }
 
-  // tslint:disable-next-line: typedef
   ngOnInit() {
   }
 
