@@ -1,12 +1,17 @@
 <div class="container mt-4">
   <div class="row">
-    <div class="col-sm-4">
+    <div class="col-lg-12">
+      <h1>{{user.knownAs}}'s Profile</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-4">
       <div class="card">
-        <img class="card-img-top img-thumbnail" src="{{user?.photoUrl}}" alt="{{user?.knownAs}}">
+        <img class="card-img-top img-thumbnail" src="{{user.photoUrl}}" alt="{{user.knownAs}}">
         <div class="card-body">
           <div>
             <strong>Location:</strong>
-            <p>{{user.city}}, {{user?.country}}</p>
+            <p>{{user.city}}, {{user.country}}</p>
           </div>
           <div>
             <strong>Age:</strong>
@@ -27,7 +32,7 @@
         </div>
       </div>
     </div>
-    <div class="col-sm-8">
+    <div class="col-lg-8">
       <div class="tab-panel">
         <tabset class="member-tabset">
           <tab heading="About {{user?.knownAs}}">
